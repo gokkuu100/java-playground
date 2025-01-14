@@ -1,16 +1,26 @@
-class OuterClass {
-    int x = 10;
-
-    class InnerClass {
-        int y = 5;
-    }
+interface FirstInterface {
+    public void myMethod();
+}
+interface SecondInterface {
+    public void myOtherMethod();
 }
 
+class Demo implements FirstInterface, SecondInterface {
+    @Override
+    public void myMethod() {
+        System.out.println("My method one");
+    }
+
+    @Override
+    public void myOtherMethod() {
+        System.out.println("My other method two");
+    }
+}
 public class Second {
     public static void main(String[] args) {
-        OuterClass myOuter = new OuterClass();
-        OuterClass.InnerClass myInner = myOuter.new InnerClass();
-        System.out.println(myInner.y + myOuter.x);
+        Demo myObj = new Demo();
+        myObj.myMethod();
+        myObj.myOtherMethod();
     }
 }
 
