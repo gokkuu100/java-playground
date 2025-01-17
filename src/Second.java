@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Second {
     public static int nbYear(int p0, double percent, int aug, int p) {
 
@@ -39,6 +41,34 @@ public class Second {
         }
     }
 
+    public static boolean isPalindrome(String myStr) {
+        myStr=myStr.toLowerCase();
+
+        String rev = "";
+        for (int i = myStr.length() - 1; i >= 0; i--) {
+            rev = rev + myStr.charAt(i);
+        }
+        return myStr.equals(rev);
+    }
+
+    public static boolean anagram(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str1.toCharArray();
+
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+
+        for (int i = 0; i<arr1.length; i++) {
+            if (arr1[i] != arr2[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     public static String convertToInitials(String name) {
         String[] parts = name.split(" ");
@@ -60,8 +90,13 @@ public class Second {
 
 
     public static void main(String[] args) {
-        evenLength("Hope is cool");
-        insertString("OmwamiGoku");
+        String str1 = "listen";
+        String str2 = "silent";
+
+        if (anagram(str1, str2))
+            System.out.println("The two strings are" + " anagram of each other");
+        else
+            System.out.println("The two strings are not" + " anagram of each other");
     }
 
 }
