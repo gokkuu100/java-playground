@@ -11,7 +11,22 @@ public class Second {
         return years;
     }
 
-    public void reverseString(char[] myArray) {
+    public static void  evenLength(String myStr) {
+        for (String w: myStr.split(" ")) {
+            if (w.length() % 2 == 0) {
+                System.out.println(w);
+            }
+        }
+    }
+
+    public static void insertString(String myStr) {
+        StringBuffer s = new StringBuffer(myStr);
+        String toInsert ="For";
+        s.insert(4, toInsert);
+        System.out.println(s.toString());
+    }
+
+    public static void reverseString(char[] myArray) {
         int left = 0;
         int right = myArray.length -1;
         while (left < right) {
@@ -45,13 +60,8 @@ public class Second {
 
 
     public static void main(String[] args) {
-        System.out.println(convertToInitials("Prince Hope"));
-        System.out.println(convertToInitials("Walter Hope"));
-
-        String input = "45385593107843568";
-        String output = fakeBin(input);
-        System.out.println("Input: " + input);
-        System.out.println("Output: " + output);
+        evenLength("Hope is cool");
+        insertString("OmwamiGoku");
     }
 
 }
