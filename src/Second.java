@@ -88,8 +88,9 @@ public class Second {
         return result.toString();
     }
 
-
     public static void main(String[] args) {
+
+        System.out.println(fakeBin("965813145"));
         String str1 = "listen";
         String str2 = "silent";
 
@@ -98,7 +99,6 @@ public class Second {
         else
             System.out.println("The two strings are not" + " anagram of each other");
     }
-
 }
 
 
