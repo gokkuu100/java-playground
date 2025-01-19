@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Third {
     public static String fakeBin(String number) {
         StringBuilder result = new StringBuilder();
@@ -46,12 +48,19 @@ public class Third {
         return "needle not found";
     }
 
+    public static boolean check(Object[] a, Object[] x) {
+        return Arrays.asList(a).contains(x);
+    }
+
 
     public static void main(String[] args) {
         String[] myArray = {"hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"};
+        Object[] array = {1, 2, 3, "hello", 4.5};
+        Object[] testInp = {3};
 
         System.out.println(findNextPerfectSquare(11));
         System.out.println(findNextSquare(144));
         System.out.println(findNeedle(myArray));
+        System.out.println(check(array, testInp));
     }
 }
