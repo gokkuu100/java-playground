@@ -46,6 +46,12 @@ public class Second {
         return error + "/" + length;
     }
 
+    public static boolean zeroFuel(double distanceToPomp, double mpg, double fuelLeft) {
+        double distanceCoverable = mpg * fuelLeft;
+
+        return (distanceCoverable>=distanceToPomp) ? true: false;
+    }
+
     public static void  evenLength(String myStr) {
         for (String w: myStr.split(" ")) {
             if (w.length() % 2 == 0) {
@@ -131,6 +137,7 @@ public class Second {
         System.out.println(boolToWord(true));
         System.out.println(evenOrOdd(6));
         System.out.println(countSheeps(myArray));
+        System.out.println(zeroFuel(100, 50, 1));
     }
 }
 
