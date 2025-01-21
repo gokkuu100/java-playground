@@ -13,6 +13,39 @@ public class Second {
         return years;
     }
 
+    public static String boolToWord(boolean b) {
+        return b ? "Yes" : "No";
+    }
+
+    public static String evenOrOdd(int number) {
+        return number%2==0 ? "Even": "Odd";
+    }
+
+    public static int countSheeps(boolean[] arrayOfSheeps) {
+        if (arrayOfSheeps == null) {
+            return 0;
+        }
+        int numPresent = 0;
+        for (boolean sheep: arrayOfSheeps) {
+            if (sheep) {
+                numPresent++;
+            }
+        }
+        return numPresent;
+    }
+
+    public static String printerError(String s) {
+        int error = 0;
+        int length = s.length();
+
+        for (char c: s.toCharArray()) {
+            if (c<'a' || c>'m') {
+                error++;
+            }
+        }
+        return error + "/" + length;
+    }
+
     public static void  evenLength(String myStr) {
         for (String w: myStr.split(" ")) {
             if (w.length() % 2 == 0) {
@@ -89,15 +122,15 @@ public class Second {
     }
 
     public static void main(String[] args) {
-
-        System.out.println(fakeBin("965813145"));
-        String str1 = "listen";
-        String str2 = "silent";
-
-        if (anagram(str1, str2))
-            System.out.println("The two strings are" + " anagram of each other");
-        else
-            System.out.println("The two strings are not" + " anagram of each other");
+        boolean[] myArray = {true,  true,  true,  false,
+                true,  true,  true,  true ,
+                true,  false, true,  false,
+                true,  false, false, true ,
+                true,  true,  true,  true ,
+                false, false, true,  true};
+        System.out.println(boolToWord(true));
+        System.out.println(evenOrOdd(6));
+        System.out.println(countSheeps(myArray));
     }
 }
 
