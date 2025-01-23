@@ -41,6 +41,7 @@ public class Leetcode {
     }
 
 
+
     public static void main(String[] args) {
         System.out.println(mergeAlternatively("abc", "pqr"));
         System.out.println(strStr("sadbutsad", "sad"));
