@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 public class Leetcode {
     public static String mergeAlternatively(String word1, String word2) {
         StringBuilder result = new StringBuilder();
@@ -40,6 +42,22 @@ public class Leetcode {
         return result.toString();
     }
 
+    public static int lengthOfLongestSubsting(String s) {
+        int maxLength = 0;
+        int left = 0;
+        HashSet<Character> set = new HashSet<>();
+
+        for (int right = 0; right<s.length();right++) {
+            char currentChar = s.charAt(right);
+            while (set.contains(currentChar)) {
+                set.remove(s.charAt(left));
+                left++;
+            }
+            set.add(currentChar);
+            maxLength = Math.max(maxLength, right-left+1);
+        }
+        return maxLength;
+    }
 
 
     public static void main(String[] args) {
@@ -47,5 +65,6 @@ public class Leetcode {
         System.out.println(strStr("sadbutsad", "sad"));
         System.out.println(solution("abc", "bc"));
         System.out.println(reverseWords("double  spaces"));
+        System.out.println(lengthOfLongestSubsting("pwwkew"));
     }
 }

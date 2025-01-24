@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.stream.StreamSupport;
 
 public class Second {
     public static int nbYear(int p0, double percent, int aug, int p) {
@@ -127,6 +128,31 @@ public class Second {
         return result.toString();
     }
 
+    public static String longePalindromeSubstring(String s) {
+        if (s == null || s.length() <1) return "";
+        int start = 0, end = 0;
+
+        for (int i=0; i<s.length();i++) {
+            int len1 = expandFromCentre(s, i, i);
+            int len2 = expandFromCentre(s, i, i+1);
+            int len = Math.max(len1, len2);
+
+            if (len > end-start) {
+                start = i - (len-1)/2;
+                end = i + len/2;
+            }
+        }
+        return s.substring(start,end+1);
+    }
+
+    private static int expandFromCentre(String s, int left, int right) {
+        while (left >=0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
+        }
+        return right - left -1;
+    }
+
     public static void main(String[] args) {
         boolean[] myArray = {true,  true,  true,  false,
                 true,  true,  true,  true ,
@@ -138,6 +164,7 @@ public class Second {
         System.out.println(evenOrOdd(6));
         System.out.println(countSheeps(myArray));
         System.out.println(zeroFuel(100, 50, 1));
+        System.out.println(longePalindromeSubstring("racecar"));
     }
 }
 
