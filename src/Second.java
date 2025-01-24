@@ -153,6 +153,35 @@ public class Second {
         return right - left -1;
     }
 
+    public static String nickname(String name) {
+        if (name.length()< 4) return "Name too short";
+        String vowels = "aeiouAEIOU";
+
+        char thirdChar = name.charAt(2);
+
+        if (vowels.indexOf(thirdChar) != -1) {
+            return name.substring(0,4);
+        } else {
+            return name.substring(0,3);
+        }
+    }
+
+    public static double factorial(int n) {
+        double ans = 1;
+        while (n > 0) {
+            ans *= n;
+            n--;
+        }
+        return ans;
+    }
+
+    public static String solution(String str) {
+        StringBuilder result = new StringBuilder(str);
+        result.reverse();
+        return result.toString();
+
+    }
+
     public static void main(String[] args) {
         boolean[] myArray = {true,  true,  true,  false,
                 true,  true,  true,  true ,
@@ -165,6 +194,9 @@ public class Second {
         System.out.println(countSheeps(myArray));
         System.out.println(zeroFuel(100, 50, 1));
         System.out.println(longePalindromeSubstring("racecar"));
+        System.out.println(nickname("Douglas"));
+        System.out.println(factorial(5));
+        System.out.println(solution("prince"));
     }
 }
 
