@@ -20,15 +20,19 @@ public class Codewars {
     }
 
     public static List<String> friend(List<String> x){
-        List<String> friends = new ArrayList<>();
-        for (String name: x) {
-            if (name.length()<=4) {
-                friends.add(name);
-            }
-        }
-        return friends;
+        return x.stream().filter(s -> s.length() == 4).toList();
     }
 
+    public static String createPhoneNumber(int[] numbers) {
+        if (numbers.length > 10) {
+            return "Numbers more than 10";
+        }
+
+        return String.format("(%d%d%d) %d%d%d-%d%d%d%d",
+                numbers[0], numbers[1], numbers[2],
+                numbers[3], numbers[4], numbers[5],
+                numbers[6], numbers[7], numbers[8], numbers[9]);
+    }
 
     public static void main(String[] args) {
         int[] myList = {8,8,6,4,7,3,2};
