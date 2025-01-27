@@ -36,7 +36,7 @@ public class Codewars {
 
     public static void main(String[] args) {
         int[] myList = {8,8,6,4,7,3,2};
-        List<String> names = List.of("John", "Mark", "Amy", "Paul", "Elizabeth");
+        List<String> names = List.of("John", "Mark", "Amy" );
         System.out.println(min(myList));
         System.out.println(max(myList));
         System.out.println(friend(names));
