@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.stream.StreamSupport;
 
 public class Second {
@@ -175,28 +176,39 @@ public class Second {
         return ans;
     }
 
+    public static int century(int number) {
+        return (number%100 == 0) ? number/100 : number/100 +1;
+    }
+
+    public static String encode(String word) {
+        String wordLower = word.toLowerCase();
+
+        HashMap<Character, Integer> charCount = new HashMap<>();
+
+        for (char c: wordLower.toCharArray()) {
+            charCount.put(c, charCount.getOrDefault(c,0) +1);
+        }
+
+        StringBuilder result = new StringBuilder();
+        for (char c: wordLower.toCharArray()) {
+            if (charCount.get(c) > 1) {
+                result.append(")");
+            } else {
+                result.append("(");
+            }
+        }
+        return result.toString();
+    }
+
     public static String solution(String str) {
         StringBuilder result = new StringBuilder(str);
         result.reverse();
         return result.toString();
-
     }
 
     public static void main(String[] args) {
-        boolean[] myArray = {true,  true,  true,  false,
-                true,  true,  true,  true ,
-                true,  false, true,  false,
-                true,  false, false, true ,
-                true,  true,  true,  true ,
-                false, false, true,  true};
-        System.out.println(boolToWord(true));
-        System.out.println(evenOrOdd(6));
-        System.out.println(countSheeps(myArray));
-        System.out.println(zeroFuel(100, 50, 1));
-        System.out.println(longePalindromeSubstring("racecar"));
-        System.out.println(nickname("Douglas"));
-        System.out.println(factorial(5));
-        System.out.println(solution("prince"));
+        System.out.println(century(1705));
+        System.out.println(encode("recede"));
     }
 }
 
