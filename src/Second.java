@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.stream.StreamSupport;
 
 public class Second {
     public static int nbYear(int p0, double percent, int aug, int p) {
@@ -206,9 +205,20 @@ public class Second {
         return result.toString();
     }
 
+    public static int getCount(String str) {
+        int count = 0;
+        for (char c: str.toCharArray()) {
+            if ("aeiou".indexOf(c) != -1) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     public static void main(String[] args) {
         System.out.println(century(1705));
         System.out.println(encode("recede"));
+        System.out.println(getCount("eld63rly"));
     }
 }
 
