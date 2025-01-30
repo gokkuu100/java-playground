@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Stack;
 
 public class Second {
     public static int nbYear(int p0, double percent, int aug, int p) {
@@ -221,10 +222,35 @@ public class Second {
         return count;
     }
 
+    public static boolean isValid(String s) {
+        Stack<Character> st = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+
+            if (s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '[') {
+                st.push(s.charAt(i));
+            }
+            else {
+
+                if (!st.empty() &&
+                        ((st.peek() == '(' && s.charAt(i) == ')') ||
+                                (st.peek() == '{' && s.charAt(i) == '}') ||
+                                (st.peek() == '[' && s.charAt(i) == ']'))) {
+                    st.pop();
+                }
+                else {
+                    return false;
+                }
+            }
+        }
+
+        return st.empty();
+    }
+
     public static void main(String[] args) {
         System.out.println(century(1705));
         System.out.println(encode("recede"));
         System.out.println(getCount("eld63rly"));
+        System.out.println(isValid("{[]}"));
     }
 }
 
