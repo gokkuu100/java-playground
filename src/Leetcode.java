@@ -13,6 +13,8 @@ public class Leetcode {
         return result.toString();
     }
 
+
+
     public static int strStr(String haystack, String needle) {
         if (needle.isEmpty()) {
             return 0;
