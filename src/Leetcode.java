@@ -1,4 +1,6 @@
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class Leetcode {
     public static String mergeAlternatively(String word1, String word2) {
@@ -42,6 +44,22 @@ public class Leetcode {
             }
         }
         return result.toString();
+    }
+
+    public static int[] twoSum(int[] numbers, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < numbers.length; i++) {
+            int complement = target - numbers[i];
+
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+
+            map.put(numbers[i], i);
+        }
+
+        throw new IllegalArgumentException("No two sum solution found");
     }
 
     public static int lengthOfLongestSubsting(String s) {
