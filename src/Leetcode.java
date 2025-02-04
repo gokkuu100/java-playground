@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 public class Leetcode {
     public static String mergeAlternatively(String word1, String word2) {
@@ -44,6 +42,49 @@ public class Leetcode {
             }
         }
         return result.toString();
+    }
+
+    public static int solve(int [] arr){
+        return Arrays.stream(arr).distinct().sum();
+    }
+
+    public static int[] deleteNth(int[] elements, int maxOccurrences) {
+        Map<Integer, Integer> countMap = new HashMap<>();
+        List<Integer> result = new ArrayList<>();
+
+        for (int n : elements) {
+            int count = countMap.getOrDefault(n, 0);
+
+            if (count < maxOccurrences) {
+                result.add(n);
+                countMap.put(n, count + 1);
+            }
+        }
+
+        return result.stream().mapToInt(i -> i).toArray();
+    }
+
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> resultSet = new HashSet<>();
+
+        for(int n: nums1) {
+            set1.add(n);
+        }
+
+        for(int n: nums2) {
+            if (set1.contains(n)) {
+                resultSet.add(n);
+            }
+        }
+
+        int[] result = new int[resultSet.size()];
+        int i = 0;
+        for (int num : resultSet) {
+            result[i++] = num;
+        }
+
+        return result;
     }
 
     public static int[] twoSum(int[] numbers, int target) {
