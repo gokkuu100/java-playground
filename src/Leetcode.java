@@ -120,12 +120,52 @@ public class Leetcode {
         return maxLength;
     }
 
+    public static int[] enoughIsEnough(int[] elements, int max) {
+        Map<Integer, Integer> countMap = new HashMap<>();
+        List<Integer> result = new ArrayList<>();
+
+        for (int n: elements) {
+            int count = countMap.getOrDefault(n, 0);
+            if (count < max) {
+                result.add(n);
+                countMap.put(n, count+1);
+            }
+        }
+        return result.stream().mapToInt(i -> i).toArray();
+    }
+
+    public static String breakCamelCase(String str) {
+        StringBuilder result = new StringBuilder();
+        for (char ch: str.toCharArray()) {
+            if (Character.isUpperCase(ch)) {
+                result.append(" ");
+            }
+            result.append(ch);
+        }
+        return result.toString();
+    }
+
+    public static String breakCamelLowerNext(String str) {
+        StringBuilder result = new StringBuilder();
+        boolean foundUpperCase = false;
+
+        for (char ch: str.toCharArray()) {
+            if (Character.isUpperCase(ch)) {
+                result.append(" ");
+                foundUpperCase = true;
+            }
+            if (foundUpperCase) {
+                result.append(Character.toLowerCase(ch));
+                foundUpperCase = false;
+            } else {
+                result.append(ch);
+            }
+        }
+        return result.toString();
+    }
+
 
     public static void main(String[] args) {
-        System.out.println(mergeAlternatively("abc", "pqr"));
-        System.out.println(strStr("sadbutsad", "sad"));
-        System.out.println(solution("abc", "bc"));
-        System.out.println(reverseWords("double  spaces"));
-        System.out.println(lengthOfLongestSubsting("pwwkew"));
+        System.out.println(breakCamelCase("helloPrince"));
     }
 }
