@@ -145,6 +145,21 @@ public class Leetcode {
         return result.toString();
     }
 
+    public static String multiTable(int num) {
+        StringBuilder result = new StringBuilder();
+        for (int i=1; i<=10;i++){
+            result.append(i).append(" * ").append(num).append(" = ").append(i * num);
+            if (i < 10) {
+                result.append("\n");
+            }
+        }
+        return result.toString();
+    }
+
+    public static String disemvowel(String str) {
+        return str.replaceAll("([AEIOUaeiou])", "");
+    }
+
     public static String breakCamelLowerNext(String str) {
         StringBuilder result = new StringBuilder();
         boolean foundUpperCase = false;
@@ -167,5 +182,6 @@ public class Leetcode {
 
     public static void main(String[] args) {
         System.out.println(breakCamelCase("helloPrince"));
+        System.out.println(multiTable(5));
     }
 }
