@@ -160,6 +160,22 @@ public class Leetcode {
         return str.replaceAll("([AEIOUaeiou])", "");
     }
 
+    public static int findIt(int[] a) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int num : a) {
+            map.put(num, map.getOrDefault(num, 0) + 1);
+        }
+
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            if (entry.getValue() % 2 != 0) {
+                return entry.getKey();
+            }
+        }
+
+        return -1;
+    }
+
     public static String breakCamelLowerNext(String str) {
         StringBuilder result = new StringBuilder();
         boolean foundUpperCase = false;
