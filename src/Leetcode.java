@@ -195,9 +195,47 @@ public class Leetcode {
         return result.toString();
     }
 
+    public static double[] tribonacci(double[] s, int n) {
+        if (n==0) return new double[0];
+
+        double[] arr = new double[n];
+
+        for (int i=0; i<Math.min(3, n); i++) {
+            arr[i] = s[i];
+        }
+
+        for (int i=3;i<n;i++) {
+            arr[i] = arr[i-1]+arr[i-2]+arr[i-3];
+        }
+        return arr;
+    }
+
+    public static String[] dup(String[] arr){
+        String[] result = new String[arr.length];
+        for (int i=0; i< arr.length;i++) {
+            result[i] = removeDuplicates(arr[i]);
+        }
+        return result;
+    }
+
+    public static String removeDuplicates(String str) {
+        StringBuilder sb = new StringBuilder();
+        char previousChar = '\0';
+
+        for (char ch: str.toCharArray()) {
+            if (ch != previousChar) {
+                sb.append(ch);
+            }
+            previousChar = ch;
+        }
+        return sb.toString();
+    }
+
 
     public static void main(String[] args) {
         System.out.println(breakCamelCase("helloPrince"));
         System.out.println(multiTable(5));
+        double[] result1 = tribonacci(new double[]{1, 1, 1}, 10);
+        System.out.println(Arrays.toString(result1));
     }
 }
