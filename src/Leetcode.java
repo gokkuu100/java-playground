@@ -231,11 +231,54 @@ public class Leetcode {
         return sb.toString();
     }
 
+    public static int minimumNumber(int[] numbers) {
+        int sum = 0;
+        for (int num: numbers) {
+            sum +=num;
+        }
+        int nextPrime = sum;
+        while (!isPrime(nextPrime)) {
+            nextPrime++;
+        }
+        return nextPrime-sum;
+    }
+
+    private static boolean isPrime(int n) {
+        if (n<2) return false;
+        for (int i =2; i*i<=n;i++) {
+            if (n%i==0) return false;
+        }
+        return true;
+    }
+
+    public static String order(String words) {
+        if (words.isEmpty()) return "";
+
+        Map<Integer, String> map = new TreeMap<>();
+        String[] splitList = words.split(" ");
+        for (String word: splitList) {
+            for (char ch: word.toCharArray()) {
+                if (Character.isDigit(ch)) {
+                    map.put(Character.getNumericValue(ch), word);
+                }
+            }
+        }
+        return String.join(" ", map.values());
+    }
+
+    static String removeExclamationMarks(String s) {
+        StringBuilder sb = new StringBuilder();
+
+        String[] str = s.split("!");
+        for (String word: str) {
+            sb.append(word);
+        }
+        return sb.toString();
+
+    }
+
 
     public static void main(String[] args) {
-        System.out.println(breakCamelCase("helloPrince"));
-        System.out.println(multiTable(5));
-        double[] result1 = tribonacci(new double[]{1, 1, 1}, 10);
-        System.out.println(Arrays.toString(result1));
+        System.out.println(order("is2 Thi1s T4est 3a"));
     }
 }
