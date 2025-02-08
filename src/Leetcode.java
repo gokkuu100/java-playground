@@ -231,6 +231,8 @@ public class Leetcode {
         return sb.toString();
     }
 
+
+
     public static int minimumNumber(int[] numbers) {
         int sum = 0;
         for (int num: numbers) {
