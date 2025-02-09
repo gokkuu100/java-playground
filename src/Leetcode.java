@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Leetcode {
     public static String mergeAlternatively(String word1, String word2) {
@@ -231,6 +232,24 @@ public class Leetcode {
         return sb.toString();
     }
 
+    public static int[] removeSmallest(int[] numbers) {
+        if (numbers.length == 0) {
+            return new int[0];
+        }
+
+        int smallest = 0;
+        for (int i=1; i<numbers.length;i++) {
+            if (numbers[i]<numbers[smallest]) {
+                smallest = i;
+            }
+        }
+
+        List<Integer> newList = Arrays.stream(numbers).boxed().collect(Collectors.toList());
+        newList.remove(smallest);
+
+        return newList.stream().mapToInt(i -> i).toArray();
+    }
+
 
 
     public static int minimumNumber(int[] numbers) {
@@ -279,8 +298,14 @@ public class Leetcode {
 
     }
 
+    public static double findUniq(double arr[]) {
+        Arrays.sort(arr);
+        return arr[0] == arr[1] ? arr[arr.length-1] : arr[0];
+    }
+
 
     public static void main(String[] args) {
-        System.out.println(order("is2 Thi1s T4est 3a"));
+        double[] myArray = {1.0,2.0,1.0,1.0};
+        System.out.println(findUniq(myArray));
     }
 }
