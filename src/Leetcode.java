@@ -303,6 +303,17 @@ public class Leetcode {
         return arr[0] == arr[1] ? arr[arr.length-1] : arr[0];
     }
 
+    public static String binaryAddition(int a, int b){
+        int n = a + b;
+        String s = "";
+        while (n > 0)
+        {
+            s =  ( (n % 2 ) == 0 ? "0" : "1") +s;
+            n = n / 2;
+        }
+        return s;
+    }
+
 
     public static void main(String[] args) {
         double[] myArray = {1.0,2.0,1.0,1.0};
