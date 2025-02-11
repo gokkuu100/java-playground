@@ -314,9 +314,27 @@ public class Leetcode {
         return s;
     }
 
+    public static Map<Character, Integer> count(String str) {
+        if (str.isEmpty()) return new HashMap<>();
+
+        Map<Character, Integer> charCount = new HashMap<>();
+
+        for (Character ch: str.toCharArray()) {
+            charCount.put(ch, charCount.getOrDefault(ch, 0)+1);
+        }
+        return charCount;
+    }
+
+    public static long[] powersOfTwo(int n){
+        long result[] = new long[n+1];
+        for (int i = 0; i <= n; i++) {
+            result[i] = (long) Math.pow(2, i);
+        }
+        return result;
+    }
+
 
     public static void main(String[] args) {
-        double[] myArray = {1.0,2.0,1.0,1.0};
-        System.out.println(findUniq(myArray));
+        System.out.println(count("aba"));
     }
 }
