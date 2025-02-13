@@ -1,6 +1,8 @@
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
+import java.util.stream.IntStream;
 
 public class Second {
     public static int nbYear(int p0, double percent, int aug, int p) {
@@ -246,11 +248,41 @@ public class Second {
         return st.empty();
     }
 
+    public static int[] twoSum(int[] array, int target) {
+        Map<Integer, Integer> map= new HashMap<>();
+
+        for (int i=0; i<array.length; i++) {
+            int complement = target - array[i];
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+            map.put(array[i], i);
+        }
+        return new int[]{};
+    }
+
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int[] merged = IntStream.concat(Arrays.stream(nums1), Arrays.stream(nums2)).toArray();
+        int arrSize = merged.length;
+        double  median = 0.0;
+        for (int num: merged) {
+            if (arrSize%2==0) {
+                int middle = arrSize/2;
+                median = (merged[middle] + merged[middle+1]) / 2;
+                return median;
+            } else {
+                int middle = arrSize%2+1;
+                median = merged[middle];
+                return median;
+            }
+        }
+        return median;
+    }
+
     public static void main(String[] args) {
-        System.out.println(century(1705));
-        System.out.println(encode("recede"));
-        System.out.println(getCount("eld63rly"));
-        System.out.println(isValid("{[]}"));
+        int[] nums1 = {1,2};
+        int[] nums2 = {3,4};
+        System.out.println(findMedianSortedArrays(nums1, nums2));
     }
 }
 
