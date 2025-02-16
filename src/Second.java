@@ -1,7 +1,4 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+import java.util.*;
 import java.util.stream.IntStream;
 
 public class Second {
@@ -279,10 +276,31 @@ public class Second {
         return median;
     }
 
+    public static boolean comp(int[] a, int[] b) {
+        List<Integer> squaredA = new ArrayList<>();
+        List<Integer> arrayListB = new ArrayList<>();
+
+        for (int num: a) {
+            squaredA.add(num*num);
+        }
+
+        for (int num: b) {
+            arrayListB.add(num);
+        }
+
+        squaredA.sort(Integer::compare);
+        arrayListB.sort(Integer::compare);
+
+        System.out.println(squaredA);
+        System.out.println(arrayListB);
+        return squaredA.equals(arrayListB);
+    }
+
     public static void main(String[] args) {
-        int[] nums1 = {1,2};
-        int[] nums2 = {3,4};
-        System.out.println(findMedianSortedArrays(nums1, nums2));
+        int[] a = {121, 144, 19, 161, 19, 144, 19, 11};
+        int[] b = {121, 14641, 20736, 361, 25921, 361, 20736, 361};
+
+        System.out.println(comp(a, b));
     }
 }
 
