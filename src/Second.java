@@ -296,11 +296,54 @@ public class Second {
         return squaredA.equals(arrayListB);
     }
 
+    public static String toAlternativeString(String string) {
+        // your code here!
+        StringBuilder result = new StringBuilder();
+
+        for (Character s: string.toCharArray()) {
+            if (Character.isLowerCase(s)) {
+                result.append(Character.toUpperCase(s));
+            } else if (Character.isUpperCase(s)) {
+                result.append(Character.toLowerCase(s));
+            }
+        }
+        return result.toString();
+    }
+
+    public static String highAndLow(String numbers) {
+        // Code here or
+        if (numbers.isEmpty()) {
+            return "invalid input";
+        }
+        String[] splitString = numbers.split(" ");
+        List<Integer> numbersArray = new ArrayList<>();
+
+        for (String num: splitString) {
+            numbersArray.add(Integer.parseInt(num));
+        }
+
+        Collections.sort(numbersArray);
+        String lowest = Integer.toString(numbersArray.get(0));
+        String highest = Integer.toString(numbersArray.get(numbersArray.size()-1));
+
+        return lowest + " " + highest;
+    }
+
+    public static int duplicateCount(String text) {
+        Map<String, Integer> charCount = new HashMap<>();
+
+        String lowerText = text.toLowerCase();
+        for (Character ch: lowerText.toCharArray()) {
+            if ()
+        }
+    }
+
     public static void main(String[] args) {
         int[] a = {121, 144, 19, 161, 19, 144, 19, 11};
         int[] b = {121, 14641, 20736, 361, 25921, 361, 20736, 361};
 
         System.out.println(comp(a, b));
+        System.out.println(toAlternativeString("HeLLo WoRLD"));
     }
 }
 
