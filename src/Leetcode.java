@@ -347,11 +347,30 @@ public class Leetcode {
         return new int[]{};
     }
 
+    public static String pigIt(String str) {
+        String[] splitStr = str.split(" ");
+        StringBuilder newString = new StringBuilder();
+
+        for (String word : splitStr) {
+            if (word.matches("[a-zA-Z]+")) {
+                newString.append(word.substring(1))
+                        .append(word.charAt(0))
+                        .append("ay");
+            } else {
+                newString.append(word);
+            }
+            newString.append(" ");
+        }
+
+        return newString.toString().trim();
+    }
+
+    public static int digital_root(int n) {
+        return (n == 0) ? 0 : 1 + (n - 1) % 9;
+    }
+
 
     public static void main(String[] args) {
-        int[] nums = {2, 7, 11, 15};
-        int target = 9;
-        int[] result = twoSum(nums, target);
-        System.out.println(result);
+        System.out.println(pigIt("Pig latin is cool"));
     }
 }
