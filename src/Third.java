@@ -54,15 +54,40 @@ public class Third {
         return Arrays.asList(a).contains(x);
     }
 
+    public static int squareDigits(int n) {
+        String numbers = String.valueOf(n);
+        String[] numberList = numbers.split("");
+        StringBuilder result = new StringBuilder();
+
+        for (String num : numberList) {
+            int numberInt = Integer.valueOf(num);
+            result.append(numberInt*numberInt);
+        }
+        return Integer.parseInt(result.toString());
+    }
+
+    public static int points(String[] games) {
+        int totalPoints = 0;
+
+        for (String game : games) {
+            String[] scores = game.split(":");
+            int x = Integer.parseInt(scores[0]);
+            int y = Integer.parseInt(scores[1]);
+
+            if (x > y) {
+                totalPoints += 3;
+            } else if (x == y) {
+                totalPoints += 1;
+            }
+        }
+
+        return totalPoints;
+    }
+
+
+
 
     public static void main(String[] args) {
-        String[] myArray = {"hay", "junk", "hay", "hay", "moreJunk", "needle", "randomJunk"};
-        Object[] array = {1, 2, 3, "hello", 4.5};
-        Object[] testInp = {3};
-
-        System.out.println(findNextPerfectSquare(11));
-        System.out.println(findNextSquare(144));
-        System.out.println(findNeedle(myArray));
-        System.out.println(check(array, testInp));
+        System.out.println(squareDigits(568));
     }
 }
