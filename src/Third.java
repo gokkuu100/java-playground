@@ -66,6 +66,7 @@ public class Third {
         return Integer.parseInt(result.toString());
     }
 
+
     public static int points(String[] games) {
         int totalPoints = 0;
 
