@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Third {
     public static String fakeBin(String number) {
@@ -66,6 +68,21 @@ public class Third {
         return Integer.parseInt(result.toString());
     }
 
+    public static String[] wave(String str) {
+        // Your code here
+        List<String> waveList = new ArrayList<>();
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == ' ') continue;
+
+            StringBuilder result = new StringBuilder(str);
+            result.setCharAt(i, Character.toUpperCase(str.charAt(i)));
+            waveList.add(result.toString());
+        }
+
+        return waveList.toArray(new String[0]);
+    }
+
 
     public static int points(String[] games) {
         int totalPoints = 0;
@@ -85,10 +102,8 @@ public class Third {
         return totalPoints;
     }
 
-
-
-
     public static void main(String[] args) {
-        System.out.println(squareDigits(568));
+        System.out.println(wave("Hello"));
+        System.out.println(3%5);
     }
 }

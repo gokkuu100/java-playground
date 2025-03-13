@@ -329,6 +329,30 @@ public class Second {
         return lowest + " " + highest;
     }
 
+    public static String battle(String goodAmounts, String evilAmounts) {
+        String[] goodArray = goodAmounts.split("");
+        String[] evilArray = evilAmounts.split("");
+        int goodArraySum = 0;
+        int evilSum = 0;
+
+        for (String num: goodArray) {
+            goodArraySum += Integer.parseInt(num);
+
+        }
+        for (String num: evilArray) {
+            evilSum += Integer.parseInt(num);
+        }
+
+        if (goodArraySum > evilSum) {
+            return "Battle Result: Good triumphs over Evil";
+        } else if (evilSum > goodArraySum) {
+            return "Battle Result: Evil eradicates all trace of Good";
+        } else {
+            return "Battle Result: No victor on this battle field";
+        }
+
+    }
+
     public static void main(String[] args) {
         int[] a = {121, 144, 19, 161, 19, 144, 19, 11};
         int[] b = {121, 14641, 20736, 361, 25921, 361, 20736, 361};
